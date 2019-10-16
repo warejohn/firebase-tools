@@ -1,7 +1,7 @@
 import * as controller from "../emulator/controller";
 import * as Config from "../config";
 import * as utils from "../utils";
-import requireAuth = require("../requireAuth");
+import { requireAuth } from "../requireAuth";
 import requireConfig = require("../requireConfig");
 import { Emulators } from "../emulator/types";
 

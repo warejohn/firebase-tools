@@ -8,7 +8,7 @@ var Config = require("../config");
 var identifierToProjectId = require("../identifierToProjectId");
 var logger = require("../logger");
 var { promptOnce } = require("../prompt");
-var requireAuth = require("../requireAuth");
+var { requireAuth } = require("../requireAuth");
 var utils = require("../utils");
 
 var MOVE_KEYS = {

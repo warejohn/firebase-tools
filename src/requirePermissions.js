@@ -3,7 +3,7 @@ const clc = require("cli-color");
 
 const api = require("./api");
 const getProjectId = require("./getProjectId");
-const requireAuth = require("./requireAuth");
+const { requireAuth } = require("./requireAuth");
 const utils = require("./utils");
 const logger = require("./logger");
 

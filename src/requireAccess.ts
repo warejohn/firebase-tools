@@ -5,7 +5,7 @@ import * as getInstanceId from "./getInstanceId";
 import * as getProjectId from "./getProjectId";
 import { FirebaseError } from "./error";
 import * as identifierToProjectId from "./identifierToProjectId";
-import * as requireAuth from "./requireAuth";
+import { requireAuth } from "./requireAuth";
 
 export function requireAccess(options: any): Promise<any> {
   const projectId = getProjectId(options, false);

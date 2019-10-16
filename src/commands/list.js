@@ -2,7 +2,7 @@
 
 var Command = require("../command");
 var api = require("../api");
-var requireAuth = require("../requireAuth");
+var { requireAuth } = require("../requireAuth");
 var clc = require("cli-color");
 var Table = require("cli-table");
 var _ = require("lodash");
