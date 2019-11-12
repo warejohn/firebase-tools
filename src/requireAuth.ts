@@ -18,7 +18,7 @@ let authClient: GoogleAuth | undefined;
  * Returns the auth client.
  * @param config options for the auth client.
  */
-async function getAuthClient(config: GoogleAuthOptions): Promise<GoogleAuth> {
+function getAuthClient(config: GoogleAuthOptions): GoogleAuth {
   if (authClient) {
     return authClient;
   }
@@ -33,7 +33,7 @@ async function getAuthClient(config: GoogleAuthOptions): Promise<GoogleAuth> {
  * @param authScopes scopes to be obtained.
  */
 async function autoAuth(options: any, authScopes: string[]): Promise<void> {
-  const client = await getAuthClient({ scopes: authScopes, projectId: options.project });
+  const client = getAuthClient({ scopes: authScopes, projectId: options.project });
   const token = await client.getAccessToken();
   api.setAccessToken(token);
 }
@@ -68,13 +68,6 @@ export async function requireAuth(options: any): Promise<void> {
   }
 
   if (!user || !tokens) {
-    if (configstore.get("session")) {
-      throw new FirebaseError(
-        `This version of Firebase CLI requires reauthentication.
-
-Please run ${clc.bold("firebase login")} to regain access.`
-      );
-    }
     throw new FirebaseError(AUTH_ERROR_MESSAGE);
   }
 
